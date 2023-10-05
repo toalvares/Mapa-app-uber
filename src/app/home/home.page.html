@@ -3,13 +3,24 @@
   <div id="contenido">
 
     <div #map id="map"></div>
-    <h3>Ingrese su destino</h3>
-    <input type="text"  [(ngModel)]="end" (input)="updateSearchResults()" placeholder="Destino">
+    <h3>Destino</h3>
+    <div class="input-wrapper">
+      <input type="text" [(ngModel)]="end" (input)="updateSearchResults()" placeholder="Destino">
+      <input type="text" placeholder="Precio">
+    </div>
+    <div class="input-wrapper">
+      <input type="text" placeholder="Asientos">
+      <input type="text" placeholder="hora">
+    </div>
+
+
+
     <ion-list *ngIf="autocompleteItems" [hidden]="autocompleteItems.length == 0">
       <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
         {{ item.description }}
       </ion-item>
     </ion-list>
+
   </div>
 
 
